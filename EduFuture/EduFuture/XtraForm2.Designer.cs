@@ -74,6 +74,7 @@
             this.simpleButton1.Size = new System.Drawing.Size(94, 29);
             this.simpleButton1.TabIndex = 4;
             this.simpleButton1.Text = "Login";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // XtraForm2
             // 

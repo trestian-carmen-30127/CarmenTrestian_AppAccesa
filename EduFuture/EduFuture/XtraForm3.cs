@@ -17,5 +17,15 @@ namespace EduFuture
         {
             InitializeComponent();
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            XtraForm4 frm = new XtraForm4();
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.FormClosing += delegate { this.Show(); };
+            frm.Show();
+            this.Hide();
+        }
     }
 }

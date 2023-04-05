@@ -32,3 +32,4 @@ C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\E
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\obj\Debug\EduFuture.XtraForm1.resources
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\obj\Debug\EduFuture.XtraForm2.resources
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\obj\Debug\EduFuture.exe.licenses
+C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\obj\Debug\EduFuture.XtraForm3.resources
