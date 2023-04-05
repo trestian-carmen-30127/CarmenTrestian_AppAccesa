@@ -18,6 +18,14 @@ namespace EduFuture
             InitializeComponent();
         }
 
-       
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            XtraForm5 frm = new XtraForm5();
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.FormClosing += delegate { this.Show(); };
+            frm.Show();
+            this.Hide();
+        }
     }
 }
