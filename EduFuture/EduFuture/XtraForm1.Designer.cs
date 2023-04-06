@@ -38,8 +38,8 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Times New Roman", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(699, 309);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.labelControl1.Location = new System.Drawing.Point(874, 386);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(468, 53);
             this.labelControl1.TabIndex = 0;
@@ -49,10 +49,10 @@
             // 
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(811, 483);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.simpleButton1.Location = new System.Drawing.Point(1014, 604);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(220, 64);
+            this.simpleButton1.Size = new System.Drawing.Size(275, 80);
             this.simpleButton1.TabIndex = 1;
             this.simpleButton1.Text = "Login";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
@@ -61,10 +61,10 @@
             // 
             this.simpleButton2.Appearance.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.Location = new System.Drawing.Point(811, 606);
-            this.simpleButton2.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.simpleButton2.Location = new System.Drawing.Point(1014, 758);
+            this.simpleButton2.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(220, 59);
+            this.simpleButton2.Size = new System.Drawing.Size(275, 74);
             this.simpleButton2.TabIndex = 2;
             this.simpleButton2.Text = "Sign up";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
@@ -80,7 +80,7 @@
             this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("XtraForm1.IconOptions.Image")));
             this.IconOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("XtraForm1.IconOptions.LargeImage")));
             this.Name = "XtraForm1";
-            this.Text = "XtraForm1";
+            this.Text = "Home";
             this.ResumeLayout(false);
             this.PerformLayout();
 
