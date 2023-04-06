@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using EduFuture.DiagramTableAdapters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace EduFuture
 {
@@ -26,6 +28,19 @@ namespace EduFuture
             frm.FormClosing += delegate { this.Show(); };
             frm.Show();
             this.Hide();
+        }
+
+        private void textEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+            UsersTableAdapter.NumberTokens(Usersdb.Users);
+            DataTable dt=Usersdb.Users;
+            for (int i = 0; i < dt.Rows.Count; i++)
+                textEdit1.Text += dt.Rows[i]["NrTokens"] + "\n";
+        }
+
+        private void textEdit2_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

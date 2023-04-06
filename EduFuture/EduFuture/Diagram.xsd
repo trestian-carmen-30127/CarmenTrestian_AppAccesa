@@ -356,7 +356,17 @@ SELECT Id_user, Username, Badges, Rank, Tokens FROM Users WHERE (Id_user = @Id_u
               <Mapping SourceColumn="Rank" DataSetColumn="Rank" />
               <Mapping SourceColumn="Tokens" DataSetColumn="Tokens" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="Database1ConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="NumberTokens" Modifier="Public" Name="NumberTokens" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="NumberTokens">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT COUNT(Tokens) AS NrTokens
+FROM     Users</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />

@@ -88,6 +88,7 @@
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(126, 24);
             this.textEdit1.TabIndex = 2;
+            this.textEdit1.EditValueChanged += new System.EventHandler(this.textEdit1_EditValueChanged);
             // 
             // textEdit2
             // 
@@ -96,6 +97,7 @@
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Size = new System.Drawing.Size(126, 24);
             this.textEdit2.TabIndex = 3;
+            this.textEdit2.EditValueChanged += new System.EventHandler(this.textEdit2_EditValueChanged);
             // 
             // createQuest
             // 
