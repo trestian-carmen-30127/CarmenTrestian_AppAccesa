@@ -18,6 +18,12 @@ namespace EduFuture
             InitializeComponent();
         }
 
+       
+        private void XtraForm1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             XtraForm2 frm = new XtraForm2();

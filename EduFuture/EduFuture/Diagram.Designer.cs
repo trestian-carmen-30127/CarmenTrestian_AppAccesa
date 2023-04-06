@@ -34,6 +34,16 @@ namespace EduFuture {
         
         private UsersDataTable tableUsers;
         
+        private global::System.Data.DataRelation relationUsers_Accounts;
+        
+        private global::System.Data.DataRelation relationUsers_User_q;
+        
+        private global::System.Data.DataRelation relationDomain_User_q;
+        
+        private global::System.Data.DataRelation relationQuest_User_q;
+        
+        private global::System.Data.DataRelation relationDomain_Quest;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -290,6 +300,11 @@ namespace EduFuture {
                     this.tableUsers.InitVars();
                 }
             }
+            this.relationUsers_Accounts = this.Relations["Users_Accounts"];
+            this.relationUsers_User_q = this.Relations["Users_User_q"];
+            this.relationDomain_User_q = this.Relations["Domain_User_q"];
+            this.relationQuest_User_q = this.Relations["Quest_User_q"];
+            this.relationDomain_Quest = this.Relations["Domain_Quest"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -310,6 +325,34 @@ namespace EduFuture {
             base.Tables.Add(this.tableUser_q);
             this.tableUsers = new UsersDataTable();
             base.Tables.Add(this.tableUsers);
+            global::System.Data.ForeignKeyConstraint fkc;
+            fkc = new global::System.Data.ForeignKeyConstraint("Users_Accounts", new global::System.Data.DataColumn[] {
+                        this.tableUsers.Id_userColumn}, new global::System.Data.DataColumn[] {
+                        this.tableAccounts.Id_userColumn});
+            this.tableAccounts.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            this.relationUsers_Accounts = new global::System.Data.DataRelation("Users_Accounts", new global::System.Data.DataColumn[] {
+                        this.tableUsers.Id_userColumn}, new global::System.Data.DataColumn[] {
+                        this.tableAccounts.Id_userColumn}, false);
+            this.Relations.Add(this.relationUsers_Accounts);
+            this.relationUsers_User_q = new global::System.Data.DataRelation("Users_User_q", new global::System.Data.DataColumn[] {
+                        this.tableUsers.Id_userColumn}, new global::System.Data.DataColumn[] {
+                        this.tableUser_q.Id_userColumn}, false);
+            this.Relations.Add(this.relationUsers_User_q);
+            this.relationDomain_User_q = new global::System.Data.DataRelation("Domain_User_q", new global::System.Data.DataColumn[] {
+                        this.tableDomain.Id_domainColumn}, new global::System.Data.DataColumn[] {
+                        this.tableUser_q.Id_domainColumn}, false);
+            this.Relations.Add(this.relationDomain_User_q);
+            this.relationQuest_User_q = new global::System.Data.DataRelation("Quest_User_q", new global::System.Data.DataColumn[] {
+                        this.tableQuest.Id_questColumn}, new global::System.Data.DataColumn[] {
+                        this.tableUser_q.Id_questColumn}, false);
+            this.Relations.Add(this.relationQuest_User_q);
+            this.relationDomain_Quest = new global::System.Data.DataRelation("Domain_Quest", new global::System.Data.DataColumn[] {
+                        this.tableDomain.Id_domainColumn}, new global::System.Data.DataColumn[] {
+                        this.tableQuest.Id_domainColumn}, false);
+            this.Relations.Add(this.relationDomain_Quest);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -549,15 +592,18 @@ namespace EduFuture {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AccountsRow AddAccountsRow(int Id_account, int Id_user, string Username, string Password, int Age, string Email) {
+            public AccountsRow AddAccountsRow(int Id_account, UsersRow parentUsersRowByUsers_Accounts, string Username, string Password, int Age, string Email) {
                 AccountsRow rowAccountsRow = ((AccountsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id_account,
-                        Id_user,
+                        null,
                         Username,
                         Password,
                         Age,
                         Email};
+                if ((parentUsersRowByUsers_Accounts != null)) {
+                    columnValuesArray[1] = parentUsersRowByUsers_Accounts[0];
+                }
                 rowAccountsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAccountsRow);
                 return rowAccountsRow;
@@ -1149,14 +1195,17 @@ namespace EduFuture {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public QuestRow AddQuestRow(int Id_quest, int Id_domain, string Quest, string Answer, int Prize) {
+            public QuestRow AddQuestRow(int Id_quest, DomainRow parentDomainRowByDomain_Quest, string Quest, string Answer, int Prize) {
                 QuestRow rowQuestRow = ((QuestRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id_quest,
-                        Id_domain,
+                        null,
                         Quest,
                         Answer,
                         Prize};
+                if ((parentDomainRowByDomain_Quest != null)) {
+                    columnValuesArray[1] = parentDomainRowByDomain_Quest[0];
+                }
                 rowQuestRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowQuestRow);
                 return rowQuestRow;
@@ -1459,13 +1508,22 @@ namespace EduFuture {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public User_qRow AddUser_qRow(int Id_userq, int Id_domain, int Id_quest, int Id_user) {
+            public User_qRow AddUser_qRow(int Id_userq, DomainRow parentDomainRowByDomain_User_q, QuestRow parentQuestRowByQuest_User_q, UsersRow parentUsersRowByUsers_User_q) {
                 User_qRow rowUser_qRow = ((User_qRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id_userq,
-                        Id_domain,
-                        Id_quest,
-                        Id_user};
+                        null,
+                        null,
+                        null};
+                if ((parentDomainRowByDomain_User_q != null)) {
+                    columnValuesArray[1] = parentDomainRowByDomain_User_q[0];
+                }
+                if ((parentQuestRowByQuest_User_q != null)) {
+                    columnValuesArray[2] = parentQuestRowByQuest_User_q[0];
+                }
+                if ((parentUsersRowByUsers_User_q != null)) {
+                    columnValuesArray[3] = parentUsersRowByUsers_User_q[0];
+                }
                 rowUser_qRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUser_qRow);
                 return rowUser_qRow;
@@ -2043,6 +2101,17 @@ namespace EduFuture {
                     this[this.tableAccounts.EmailColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public UsersRow UsersRow {
+                get {
+                    return ((UsersRow)(this.GetParentRow(this.Table.ParentRelations["Users_Accounts"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Users_Accounts"]);
+                }
+            }
         }
         
         /// <summary>
@@ -2078,6 +2147,28 @@ namespace EduFuture {
                 }
                 set {
                     this[this.tableDomain.DomainNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public User_qRow[] GetUser_qRows() {
+                if ((this.Table.ChildRelations["Domain_User_q"] == null)) {
+                    return new User_qRow[0];
+                }
+                else {
+                    return ((User_qRow[])(base.GetChildRows(this.Table.ChildRelations["Domain_User_q"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public QuestRow[] GetQuestRows() {
+                if ((this.Table.ChildRelations["Domain_Quest"] == null)) {
+                    return new QuestRow[0];
+                }
+                else {
+                    return ((QuestRow[])(base.GetChildRows(this.Table.ChildRelations["Domain_Quest"])));
                 }
             }
         }
@@ -2150,6 +2241,28 @@ namespace EduFuture {
                     this[this.tableQuest.PrizeColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public DomainRow DomainRow {
+                get {
+                    return ((DomainRow)(this.GetParentRow(this.Table.ParentRelations["Domain_Quest"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Domain_Quest"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public User_qRow[] GetUser_qRows() {
+                if ((this.Table.ChildRelations["Quest_User_q"] == null)) {
+                    return new User_qRow[0];
+                }
+                else {
+                    return ((User_qRow[])(base.GetChildRows(this.Table.ChildRelations["Quest_User_q"])));
+                }
+            }
         }
         
         /// <summary>
@@ -2207,6 +2320,39 @@ namespace EduFuture {
                 }
                 set {
                     this[this.tableUser_q.Id_userColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public UsersRow UsersRow {
+                get {
+                    return ((UsersRow)(this.GetParentRow(this.Table.ParentRelations["Users_User_q"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Users_User_q"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public DomainRow DomainRow {
+                get {
+                    return ((DomainRow)(this.GetParentRow(this.Table.ParentRelations["Domain_User_q"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Domain_User_q"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public QuestRow QuestRow {
+                get {
+                    return ((QuestRow)(this.GetParentRow(this.Table.ParentRelations["Quest_User_q"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Quest_User_q"]);
                 }
             }
         }
@@ -2277,6 +2423,28 @@ namespace EduFuture {
                 }
                 set {
                     this[this.tableUsers.TokensColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AccountsRow[] GetAccountsRows() {
+                if ((this.Table.ChildRelations["Users_Accounts"] == null)) {
+                    return new AccountsRow[0];
+                }
+                else {
+                    return ((AccountsRow[])(base.GetChildRows(this.Table.ChildRelations["Users_Accounts"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public User_qRow[] GetUser_qRows() {
+                if ((this.Table.ChildRelations["Users_User_q"] == null)) {
+                    return new User_qRow[0];
+                }
+                else {
+                    return ((User_qRow[])(base.GetChildRows(this.Table.ChildRelations["Users_User_q"])));
                 }
             }
         }
@@ -2636,11 +2804,26 @@ SELECT Id_account, Id_user, Username, Password, Age, Email FROM Accounts WHERE (
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id_account, Id_user, Username, Password, Age, Email FROM dbo.Accounts";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT Username FROM Accounts";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "INSERT INTO Accounts\r\n                  (Id_user)\r\nVALUES (@Id_user);  \r\nSELECT I" +
+                "d_user FROM Accounts WHERE (Id_account = @Id_account)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id_user", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id_user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id_account", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id_account", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT MAX(Id_account) AS MId_account\r\nFROM     Accounts";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2850,6 +3033,87 @@ SELECT Id_account, Id_user, Username, Password, Age, Email FROM Accounts WHERE (
         public virtual int Update(int Id_user, string Username, string Password, int Age, string Email, int Original_Id_account, int Original_Id_user, string Original_Username, string Original_Password, int Original_Age, string Original_Email) {
             return this.Update(Original_Id_account, Id_user, Username, Password, Age, Email, Original_Id_account, Original_Id_user, Original_Username, Original_Password, Original_Age, Original_Email);
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual string distinct_username() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((string)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int Insert_Id_user(int Id_user, int Id_account) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            command.Parameters[0].Value = ((int)(Id_user));
+            command.Parameters[1].Value = ((int)(Id_account));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object Last_Idaccount() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
     }
     
     /// <summary>
@@ -3013,11 +3277,15 @@ SELECT Id_account, Id_user, Username, Password, Age, Email FROM Accounts WHERE (
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id_domain, DomainName FROM dbo.Domain";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT MAX(Id_domain) AS MId_domain\r\nFROM     Domain";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3170,6 +3438,34 @@ SELECT Id_account, Id_user, Username, Password, Age, Email FROM Accounts WHERE (
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string DomainName, int Original_Id_domain, string Original_DomainName) {
             return this.Update(Original_Id_domain, DomainName, Original_Id_domain, Original_DomainName);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> Last_Iddomain() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
         }
     }
     
@@ -3712,11 +4008,15 @@ SELECT Id_userq, Id_domain, Id_quest, Id_user FROM User_q WHERE (Id_userq = @Id_
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id_userq, Id_domain, Id_quest, Id_user FROM dbo.User_q";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT MAX(Id_userq) AS MId_userq FROM User_q";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3857,6 +4157,34 @@ SELECT Id_userq, Id_domain, Id_quest, Id_user FROM User_q WHERE (Id_userq = @Id_
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(int Id_domain, int Id_quest, int Id_user, int Original_Id_userq, int Original_Id_domain, int Original_Id_quest, int Original_Id_user) {
             return this.Update(Original_Id_userq, Id_domain, Id_quest, Id_user, Original_Id_userq, Original_Id_domain, Original_Id_quest, Original_Id_user);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> Last_Iduserq() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
         }
     }
     
@@ -4393,15 +4721,6 @@ SELECT Id_user, Username, Badges, Rank, Tokens FROM Users WHERE (Id_user = @Id_u
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateUpdatedRows(Diagram dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._accountsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Accounts.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._accountsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._domainTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Domain.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -4420,21 +4739,30 @@ SELECT Id_user, Username, Badges, Rank, Tokens FROM Users WHERE (Id_user = @Id_u
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._user_qTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.User_q.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._user_qTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._usersTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._usersTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._accountsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Accounts.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._accountsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._user_qTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.User_q.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._user_qTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -4448,14 +4776,6 @@ SELECT Id_user, Username, Badges, Rank, Tokens FROM Users WHERE (Id_user = @Id_u
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateInsertedRows(Diagram dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._accountsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Accounts.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._accountsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._domainTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Domain.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -4472,19 +4792,27 @@ SELECT Id_user, Username, Badges, Rank, Tokens FROM Users WHERE (Id_user = @Id_u
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._user_qTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.User_q.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._user_qTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._usersTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._usersTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._accountsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Accounts.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._accountsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._user_qTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.User_q.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._user_qTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -4498,19 +4826,27 @@ SELECT Id_user, Username, Badges, Rank, Tokens FROM Users WHERE (Id_user = @Id_u
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(Diagram dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._usersTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._usersTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._user_qTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.User_q.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._user_qTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._accountsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Accounts.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._accountsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._usersTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -4527,14 +4863,6 @@ SELECT Id_user, Username, Badges, Rank, Tokens FROM Users WHERE (Id_user = @Id_u
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._domainTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._accountsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Accounts.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._accountsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

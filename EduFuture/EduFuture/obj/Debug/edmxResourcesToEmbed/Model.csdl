@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UsersdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Id_account" />
+    </Key>
+    <Property Name="Id_account" Type="Int32" Nullable="false" />
+    <Property Name="Id_user" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Domain">
+    <Key>
+      <PropertyRef Name="Id_domain" />
+    </Key>
+    <Property Name="Id_domain" Type="Int32" Nullable="false" />
+    <Property Name="DomainName" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Quest">
+    <Key>
+      <PropertyRef Name="Id_quest" />
+    </Key>
+    <Property Name="Id_quest" Type="Int32" Nullable="false" />
+    <Property Name="Id_domain" Type="Int32" Nullable="false" />
+    <Property Name="Quest1" Type="String" MaxLength="500" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Answer" Type="String" MaxLength="500" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Prize" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_q">
+    <Key>
+      <PropertyRef Name="Id_userq" />
+    </Key>
+    <Property Name="Id_userq" Type="Int32" Nullable="false" />
+    <Property Name="Id_domain" Type="Int32" Nullable="false" />
+    <Property Name="Id_quest" Type="Int32" Nullable="false" />
+    <Property Name="Id_user" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id_user" />
+    </Key>
+    <Property Name="Id_user" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Badges" Type="Int32" Nullable="false" />
+    <Property Name="Rank" Type="Int32" Nullable="false" />
+    <Property Name="Tokens" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="UsersdbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="Domains" EntityType="Self.Domain" />
+    <EntitySet Name="Quests" EntityType="Self.Quest" />
+    <EntitySet Name="User_q" EntityType="Self.User_q" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+  </EntityContainer>
+</Schema>

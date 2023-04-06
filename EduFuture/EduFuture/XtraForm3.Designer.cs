@@ -49,8 +49,8 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(456, 18);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.labelControl1.Location = new System.Drawing.Point(456, 19);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(228, 42);
             this.labelControl1.TabIndex = 0;
@@ -60,8 +60,8 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(281, 130);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.labelControl2.Location = new System.Drawing.Point(281, 139);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(108, 31);
             this.labelControl2.TabIndex = 1;
@@ -71,8 +71,8 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(281, 185);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.labelControl3.Location = new System.Drawing.Point(281, 197);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(64, 31);
             this.labelControl3.TabIndex = 2;
@@ -82,8 +82,8 @@
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(281, 252);
-            this.labelControl4.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.labelControl4.Location = new System.Drawing.Point(281, 269);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(43, 31);
             this.labelControl4.TabIndex = 3;
@@ -93,7 +93,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(225, 309);
+            this.checkBox1.Location = new System.Drawing.Point(341, 421);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(189, 37);
             this.checkBox1.TabIndex = 6;
@@ -104,42 +104,42 @@
             // 
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(548, 469);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.simpleButton1.Location = new System.Drawing.Point(548, 500);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(6);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(194, 66);
+            this.simpleButton1.Size = new System.Drawing.Size(194, 70);
             this.simpleButton1.TabIndex = 7;
             this.simpleButton1.Text = "Create";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(458, 139);
-            this.textEdit1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.textEdit1.Location = new System.Drawing.Point(458, 148);
+            this.textEdit1.Margin = new System.Windows.Forms.Padding(6);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(195, 24);
             this.textEdit1.TabIndex = 8;
             // 
             // textEdit2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(458, 194);
-            this.textEdit2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.textEdit2.Location = new System.Drawing.Point(458, 207);
+            this.textEdit2.Margin = new System.Windows.Forms.Padding(6);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Size = new System.Drawing.Size(195, 24);
             this.textEdit2.TabIndex = 9;
             // 
             // textEdit3
             // 
-            this.textEdit3.Location = new System.Drawing.Point(458, 261);
-            this.textEdit3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.textEdit3.Location = new System.Drawing.Point(458, 278);
+            this.textEdit3.Margin = new System.Windows.Forms.Padding(6);
             this.textEdit3.Name = "textEdit3";
             this.textEdit3.Size = new System.Drawing.Size(195, 24);
             this.textEdit3.TabIndex = 10;
             // 
             // textEdit4
             // 
-            this.textEdit4.Location = new System.Drawing.Point(458, 324);
-            this.textEdit4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.textEdit4.Location = new System.Drawing.Point(458, 346);
+            this.textEdit4.Margin = new System.Windows.Forms.Padding(6);
             this.textEdit4.Name = "textEdit4";
             this.textEdit4.Size = new System.Drawing.Size(195, 24);
             this.textEdit4.TabIndex = 11;
@@ -148,8 +148,8 @@
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(281, 315);
-            this.labelControl5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.labelControl5.Location = new System.Drawing.Point(281, 338);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(103, 31);
             this.labelControl5.TabIndex = 12;
@@ -157,9 +157,10 @@
             // 
             // XtraForm3
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.Appearance.Options.UseFont = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1010, 488);
+            this.ClientSize = new System.Drawing.Size(1208, 632);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.textEdit4);
             this.Controls.Add(this.textEdit3);
@@ -171,8 +172,10 @@
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
+            this.Font = new System.Drawing.Font("Tahoma", 7.8F);
             this.Name = "XtraForm3";
             this.Text = "Create an account";
+          
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();

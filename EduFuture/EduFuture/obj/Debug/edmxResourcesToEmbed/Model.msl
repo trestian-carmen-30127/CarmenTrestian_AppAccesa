@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UsersdbModelStoreContainer" CdmEntityContainer="UsersdbEntities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="UsersdbModel.Account">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="Id_account" ColumnName="Id_account" />
+          <ScalarProperty Name="Id_user" ColumnName="Id_user" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Domains">
+      <EntityTypeMapping TypeName="UsersdbModel.Domain">
+        <MappingFragment StoreEntitySet="Domain">
+          <ScalarProperty Name="Id_domain" ColumnName="Id_domain" />
+          <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quests">
+      <EntityTypeMapping TypeName="UsersdbModel.Quest">
+        <MappingFragment StoreEntitySet="Quest">
+          <ScalarProperty Name="Id_quest" ColumnName="Id_quest" />
+          <ScalarProperty Name="Id_domain" ColumnName="Id_domain" />
+          <ScalarProperty Name="Quest1" ColumnName="Quest" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Prize" ColumnName="Prize" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_q">
+      <EntityTypeMapping TypeName="UsersdbModel.User_q">
+        <MappingFragment StoreEntitySet="User_q">
+          <ScalarProperty Name="Id_userq" ColumnName="Id_userq" />
+          <ScalarProperty Name="Id_domain" ColumnName="Id_domain" />
+          <ScalarProperty Name="Id_quest" ColumnName="Id_quest" />
+          <ScalarProperty Name="Id_user" ColumnName="Id_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="UsersdbModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id_user" ColumnName="Id_user" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Badges" ColumnName="Badges" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="Tokens" ColumnName="Tokens" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
