@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using EduFuture.DiagramTableAdapters;
+//using EduFuture.DiagramTableAdapters;
 using System.Data.SqlClient;
 using System.Data.Entity;
 
@@ -35,7 +35,7 @@ namespace EduFuture
 
         private void textEdit1_EditValueChanged(object sender, EventArgs e)
         {
-           // UsersTableAdapter.NumberTokens(EduFuturedb.Users);
+           //  UsersTableAdapter.NumberTokens(EduFuturedb.Users);
             //DataTable dt = EduFuturedb.Users;
             //for (int i = 0; i < dt.Rows.Count; i++)
               //  textEdit1.Text += dt.Rows[i]["NrTokens"] + "\n";
