@@ -35,8 +35,6 @@ C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\E
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\obj\Debug\EduFuture.XtraForm3.resources
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\obj\Debug\EduFuture.XtraForm4.resources
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\obj\Debug\EduFuture.XtraForm5.resources
-C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\Usersdb.mdf
-C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\Usersdb_log.ldf
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\EntityFramework.dll
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
@@ -98,3 +96,14 @@ C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\E
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\tr\Microsoft.VisualStudio.Services.WebApi.resources.dll
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\zh-Hans\Microsoft.VisualStudio.Services.WebApi.resources.dll
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\zh-Hant\Microsoft.VisualStudio.Services.WebApi.resources.dll
+C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\EduFuturedb.mdf
+C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\EduFuturedb_log.ldf
+C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.CodeParser.v22.2.dll
+C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.DataAccess.v22.2.dll
+C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.Office.v22.2.Core.dll
+C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.RichEdit.v22.2.Core.dll
+C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.Xpo.v22.2.dll
+C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.DataAccess.v22.2.xml
+C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.Office.v22.2.Core.xml
+C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.RichEdit.v22.2.Core.xml
+C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.Xpo.v22.2.xml

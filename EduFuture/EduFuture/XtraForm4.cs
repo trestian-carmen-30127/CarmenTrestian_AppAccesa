@@ -1,5 +1,4 @@
 ﻿using DevExpress.XtraEditors;
-//using EduFuture.DiagramTableAdapters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using EduFuture.DiagramTableAdapters;
+using System.Data.SqlClient;
+using System.Data.Entity;
 
 namespace EduFuture
 {
@@ -18,8 +20,9 @@ namespace EduFuture
         public XtraForm4()
         {
             InitializeComponent();
+            
         }
-
+       // SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\db.mdf;Integrated Security = True");
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             XtraForm5 frm = new XtraForm5();
@@ -32,10 +35,10 @@ namespace EduFuture
 
         private void textEdit1_EditValueChanged(object sender, EventArgs e)
         {
-          /*  UsersTableAdapter.NumberTokens(Usersdb.Users);
-            DataTable dt=Usersdb.Users;
-            for (int i = 0; i < dt.Rows.Count; i++)
-                textEdit1.Text += dt.Rows[i]["NrTokens"] + "\n";*/
+           // UsersTableAdapter.NumberTokens(EduFuturedb.Users);
+            //DataTable dt = EduFuturedb.Users;
+            //for (int i = 0; i < dt.Rows.Count; i++)
+              //  textEdit1.Text += dt.Rows[i]["NrTokens"] + "\n";
         }
 
         private void textEdit2_EditValueChanged(object sender, EventArgs e)
@@ -45,7 +48,7 @@ namespace EduFuture
 
         private void XtraForm4_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

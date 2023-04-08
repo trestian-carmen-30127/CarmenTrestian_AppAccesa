@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -39,6 +40,7 @@
             this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
@@ -155,6 +157,10 @@
             this.labelControl5.TabIndex = 12;
             this.labelControl5.Text = "Password";
             // 
+            // sqlDataSource1
+            // 
+            this.sqlDataSource1.Name = "sqlDataSource1";
+            // 
             // XtraForm3
             // 
             this.Appearance.Options.UseFont = true;
@@ -198,5 +204,6 @@
         private DevExpress.XtraEditors.TextEdit textEdit3;
         private DevExpress.XtraEditors.TextEdit textEdit4;
         private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
     }
 }
