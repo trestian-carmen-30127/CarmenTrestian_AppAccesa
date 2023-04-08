@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using EduFuture.DiagramTableAdapters;
+//using EduFuture.DiagramTableAdapters;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using DevExpress.ClipboardSource.SpreadsheetML;
 using Microsoft.VisualStudio.Services.Commerce;
@@ -23,11 +23,11 @@ namespace EduFuture
         {
             InitializeComponent();
         }
-        SqlConnection con= new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\Usersdb.mdf;Integrated Security = True");
+      //  SqlConnection con= new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\Usersdb.mdf;Integrated Security = True");
       
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            //int i = int.Parse(AccountsTableAdapter.Last_Idaccount().ToString());
+           /* //int i = int.Parse(AccountsTableAdapter.Last_Idaccount().ToString());
             try
             {
                 int i = 1;
@@ -59,7 +59,7 @@ namespace EduFuture
             
             con.Close();
 
-
+            */
 
             XtraForm4 frm = new XtraForm4();
             frm.Location = this.Location;
@@ -69,6 +69,9 @@ namespace EduFuture
             this.Hide();
         }
 
-        
+        private void XtraForm3_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -175,7 +175,7 @@
             this.Font = new System.Drawing.Font("Tahoma", 7.8F);
             this.Name = "XtraForm3";
             this.Text = "Create an account";
-          
+            this.Load += new System.EventHandler(this.XtraForm3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();

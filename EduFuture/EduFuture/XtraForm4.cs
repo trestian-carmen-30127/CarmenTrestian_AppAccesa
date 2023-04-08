@@ -1,5 +1,5 @@
 ﻿using DevExpress.XtraEditors;
-using EduFuture.DiagramTableAdapters;
+//using EduFuture.DiagramTableAdapters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,13 +32,18 @@ namespace EduFuture
 
         private void textEdit1_EditValueChanged(object sender, EventArgs e)
         {
-            UsersTableAdapter.NumberTokens(Usersdb.Users);
+          /*  UsersTableAdapter.NumberTokens(Usersdb.Users);
             DataTable dt=Usersdb.Users;
             for (int i = 0; i < dt.Rows.Count; i++)
-                textEdit1.Text += dt.Rows[i]["NrTokens"] + "\n";
+                textEdit1.Text += dt.Rows[i]["NrTokens"] + "\n";*/
         }
 
         private void textEdit2_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void XtraForm4_Load(object sender, EventArgs e)
         {
 
         }

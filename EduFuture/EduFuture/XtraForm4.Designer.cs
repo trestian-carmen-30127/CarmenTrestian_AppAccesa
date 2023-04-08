@@ -244,6 +244,7 @@
             this.Controls.Add(this.labelControl1);
             this.Name = "XtraForm4";
             this.Text = "Profile";
+            this.Load += new System.EventHandler(this.XtraForm4_Load);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
