@@ -25,7 +25,11 @@ namespace EduFuture
 
         }
         private SqlConnection con = new SqlConnection("Data Source=" + "LAPTOP-GPJH9TCQ\\SQLEXPRESS01;Initial Catalog=EduFuturedb;Integrated Security=True");
-
+        public static class QuestSession
+        {
+            public static string Questiontxt { get; set; }
+            
+        }
 
         int userId = UserSession.UserId;
         string username = UserSession.Username;
@@ -125,6 +129,7 @@ namespace EduFuture
             {
                 if (listBox1.GetSelected(i))
                 {
+                    QuestSession.Questiontxt = listBox1.Items[i].ToString();
                     XtraForm6 frm = new XtraForm6();
                     frm.Location = this.Location;
                     frm.StartPosition = FormStartPosition.Manual;
@@ -164,6 +169,7 @@ namespace EduFuture
             {
                 if (listBox2.GetSelected(i))
                 {
+                    QuestSession.Questiontxt = listBox2.Items[i].ToString();
                     XtraForm6 frm = new XtraForm6();
                     frm.Location = this.Location;
                     frm.StartPosition = FormStartPosition.Manual;
@@ -173,5 +179,7 @@ namespace EduFuture
                 }
             }
         }
+
+      
     }
 }

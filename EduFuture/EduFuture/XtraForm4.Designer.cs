@@ -40,8 +40,8 @@
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.listBox2 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
@@ -170,6 +170,15 @@
             this.xtraTabPage1.Text = "Computer Science";
             this.xtraTabPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.xtraTabPage1_Paint);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(27, 38);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(544, 394);
+            this.listBox1.TabIndex = 0;
+            // 
             // xtraTabPage2
             // 
             this.xtraTabPage2.Controls.Add(this.listBox2);
@@ -178,22 +187,13 @@
             this.xtraTabPage2.Text = "History";
             this.xtraTabPage2.Paint += new System.Windows.Forms.PaintEventHandler(this.xtraTabPage2_Paint);
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(49, 68);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(322, 169);
-            this.listBox1.TabIndex = 0;
-            // 
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 15;
-            this.listBox2.Location = new System.Drawing.Point(137, 151);
+            this.listBox2.Location = new System.Drawing.Point(30, 31);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(306, 154);
+            this.listBox2.Size = new System.Drawing.Size(549, 409);
             this.listBox2.TabIndex = 0;
             // 
             // XtraForm4

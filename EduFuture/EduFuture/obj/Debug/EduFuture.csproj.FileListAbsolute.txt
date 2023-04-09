@@ -106,3 +106,7 @@ C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\E
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.RichEdit.v22.2.Core.xml
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.Xpo.v22.2.xml
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\obj\Debug\EduFuture.XtraForm6.resources
+C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.SpellChecker.v22.2.Core.dll
+C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.XtraSpellChecker.v22.2.dll
+C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.SpellChecker.v22.2.Core.xml
+C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.XtraSpellChecker.v22.2.xml
