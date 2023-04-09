@@ -158,7 +158,6 @@
             this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
             "Computer Science",
             "History"});
-            this.comboBoxEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.comboBoxEdit1.Size = new System.Drawing.Size(125, 24);
             this.comboBoxEdit1.TabIndex = 11;
             // 
@@ -179,7 +178,7 @@
             this.Controls.Add(this.createq);
             this.Controls.Add(this.back);
             this.Name = "XtraForm5";
-            this.Text = "XtraForm5";
+            this.Text = "Create Quest Page";
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();

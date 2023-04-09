@@ -28,7 +28,7 @@ namespace EduFuture
         {
             InitializeComponent();
         }
-      //   SqlConnection con = new SqlConnection(@"Data Source=LocalDB\\MSSQLLocalDB; AttachDbFilename=C:\\Users\\trest\\Documents\\Test tehnic Accesa\\CarmenTrestian_AppAccesa\\EduFuture\\EduFuture\\EduFuturedb.mdf;Integrated Security = True; Connect Timeout = 30");
+     
         private SqlConnection con = new SqlConnection("Data Source=" + "LAPTOP-GPJH9TCQ\\SQLEXPRESS01;Initial Catalog=EduFuturedb;Integrated Security=True");
         private SqlDataAdapter Da = new SqlDataAdapter();
 
@@ -44,13 +44,12 @@ namespace EduFuture
                 
             }
             i++;
-            
             try
             {
                 
                 con.Open();
                 SqlCommand Insert_Users = con.CreateCommand();
-                    Insert_Users.CommandText = "INSERT INTO Users (Id_user, Username, Password, Age , Email,Badges,Rank,Tokens) VALUES (@Id_user, @Username, @Password, @Age, @Email,@Badges,@Rank,@Tokens)";
+                Insert_Users.CommandText = "INSERT INTO Users (Id_user, Username, Password, Age , Email,Badges,Rank,Tokens) VALUES (@Id_user, @Username, @Password, @Age, @Email,@Badges,@Rank,@Tokens)";
                     Insert_Users.Parameters.AddWithValue("@Id_user", i);
                     Insert_Users.Parameters.AddWithValue("@Username", textEdit1.Text);
                     Insert_Users.Parameters.AddWithValue("@Password", textEdit4.Text);
@@ -60,7 +59,7 @@ namespace EduFuture
                     if (checkBox1.Checked) Insert_Users.Parameters.AddWithValue("@Rank", "teacher");
                     else Insert_Users.Parameters.AddWithValue("@Rank", "begginer");
                     Insert_Users.Parameters.AddWithValue("@Tokens", 0);
-                    Insert_Users.ExecuteNonQuery(); 
+                    Insert_Users.ExecuteNonQuery();
                 MessageBox.Show("Your account was created!");
             }
             catch(Exception ex)

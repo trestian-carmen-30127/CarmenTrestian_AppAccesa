@@ -74,7 +74,7 @@
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.labelControl1);
             this.Name = "XtraForm1";
-            this.Text = "XtraForm1";
+            this.Text = "Home Page";
             this.Load += new System.EventHandler(this.XtraForm1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

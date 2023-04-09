@@ -102,6 +102,7 @@
             this.Font = new System.Drawing.Font("Tahoma", 7.8F);
             this.Name = "XtraForm2";
             this.Text = "Login to account";
+          
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
