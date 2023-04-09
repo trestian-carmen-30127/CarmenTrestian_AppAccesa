@@ -8,6 +8,7 @@ using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel.Channels;
 using System.ServiceModel.Security;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,18 +21,19 @@ namespace EduFuture
 {
     public partial class XtraForm2 : DevExpress.XtraEditors.XtraForm
     {
-        public string Usern
-        {
-            get { return textEdit1.Text; }
-        }
+       
         public XtraForm2()
         {
             InitializeComponent();
         }
         private SqlConnection con = new SqlConnection("Data Source=" + "LAPTOP-GPJH9TCQ\\SQLEXPRESS01;Initial Catalog=EduFuturedb;Integrated Security=True");
-        private SqlDataAdapter Da = new SqlDataAdapter();
-       
-      
+
+
+        public static class UserSession
+        {
+            public static int UserId { get; set; }
+            public static string Username { get; set; }
+        }
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             
@@ -45,29 +47,27 @@ namespace EduFuture
 
             if ( p!=null && (string.Compare(p.Trim(),textEdit2.Text)==0 ))
             {
-                
+                SqlCommand id = new SqlCommand("SELECT Tokens FROM Users WHERE Username=@user", con);
+                id.Parameters.AddWithValue("@user", user);
+                int i = Convert.ToInt32(id.ExecuteScalar());
+                UserSession.UserId = i;
+                UserSession.Username = user;
                 XtraForm4 frm = new XtraForm4();
-                frm.Usern = user;
                 frm.Location = this.Location;
                 frm.StartPosition = FormStartPosition.Manual;
                 frm.FormClosing += delegate { this.Show(); };
                 frm.Show();
                 this.Hide();
 
-                XtraForm5 frm5 = new XtraForm5();
-                frm5.Usern = user;
-             //   frm5.Location = this.Location;
-              //  frm5.StartPosition = FormStartPosition.Manual;
-                //frm5.FormClosing += delegate { this.Show(); };
-                //frm5.Show();
-                //this.Hide();
-
-
             }
             else MessageBox.Show("The password or username is invalid.") ;
+
+          
+
             con.Close();
-           
-            
+         
+
+
         }
 
         
