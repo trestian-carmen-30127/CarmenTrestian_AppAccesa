@@ -146,6 +146,12 @@
     <Compile Include="XtraForm5.Designer.cs">
       <DependentUpon>XtraForm5.cs</DependentUpon>
     </Compile>
+    <Compile Include="XtraForm6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraForm6.Designer.cs">
+      <DependentUpon>XtraForm6.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="XtraForm5.resx">
       <DependentUpon>XtraForm5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraForm6.resx">
+      <DependentUpon>XtraForm6.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />

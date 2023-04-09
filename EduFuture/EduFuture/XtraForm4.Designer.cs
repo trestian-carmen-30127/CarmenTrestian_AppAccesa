@@ -38,21 +38,19 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.tabNavigationPage2 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
-            this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
-            this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
-            this.listBoxControl1 = new DevExpress.XtraEditors.ListBoxControl();
-            this.listBoxControl2 = new DevExpress.XtraEditors.ListBoxControl();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            this.tabNavigationPage2.SuspendLayout();
-            this.tabNavigationPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
-            this.tabPane1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
+            this.xtraTabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -153,67 +151,62 @@
             this.textEdit2.Size = new System.Drawing.Size(125, 24);
             this.textEdit2.TabIndex = 12;
             // 
-            // tabNavigationPage2
+            // xtraTabControl1
             // 
-            this.tabNavigationPage2.Caption = "History";
-            this.tabNavigationPage2.Controls.Add(this.listBoxControl2);
-            this.tabNavigationPage2.Margin = new System.Windows.Forms.Padding(5);
-            this.tabNavigationPage2.Name = "tabNavigationPage2";
-            this.tabNavigationPage2.Size = new System.Drawing.Size(730, 565);
-
+            this.xtraTabControl1.Location = new System.Drawing.Point(701, 71);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.Size = new System.Drawing.Size(609, 491);
+            this.xtraTabControl1.TabIndex = 13;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage1,
+            this.xtraTabPage2});
             // 
-            // tabNavigationPage1
+            // xtraTabPage1
             // 
-            this.tabNavigationPage1.Caption = "Computer Science";
-            this.tabNavigationPage1.Controls.Add(this.listBoxControl1);
-            this.tabNavigationPage1.Margin = new System.Windows.Forms.Padding(5);
-            this.tabNavigationPage1.Name = "tabNavigationPage1";
-            this.tabNavigationPage1.Size = new System.Drawing.Size(730, 565);
+            this.xtraTabPage1.Controls.Add(this.listBox1);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(607, 464);
+            this.xtraTabPage1.Text = "Computer Science";
+            this.xtraTabPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.xtraTabPage1_Paint);
             // 
-            // tabPane1
+            // xtraTabPage2
             // 
-            this.tabPane1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPane1.Appearance.Options.UseFont = true;
-            this.tabPane1.Controls.Add(this.tabNavigationPage2);
-            this.tabPane1.Controls.Add(this.tabNavigationPage1);
-            this.tabPane1.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.tabPane1.Location = new System.Drawing.Point(600, 85);
-            this.tabPane1.Margin = new System.Windows.Forms.Padding(6);
-            this.tabPane1.Name = "tabPane1";
-            this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.tabNavigationPage1,
-            this.tabNavigationPage2});
-            this.tabPane1.RegularSize = new System.Drawing.Size(730, 590);
-            this.tabPane1.SelectedPage = this.tabNavigationPage1;
-            this.tabPane1.Size = new System.Drawing.Size(730, 590);
-            this.tabPane1.TabIndex = 7;
-            this.tabPane1.Text = "History";
+            this.xtraTabPage2.Controls.Add(this.listBox2);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(607, 464);
+            this.xtraTabPage2.Text = "History";
+            this.xtraTabPage2.Paint += new System.Windows.Forms.PaintEventHandler(this.xtraTabPage2_Paint);
             // 
-            // listBoxControl1
+            // listBox1
             // 
-            this.listBoxControl1.Location = new System.Drawing.Point(3, 3);
-            this.listBoxControl1.Name = "listBoxControl1";
-            this.listBoxControl1.Size = new System.Drawing.Size(724, 562);
-            this.listBoxControl1.TabIndex = 0;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(49, 68);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(322, 169);
+            this.listBox1.TabIndex = 0;
             // 
-            // listBoxControl2
+            // listBox2
             // 
-            this.listBoxControl2.Location = new System.Drawing.Point(3, 3);
-            this.listBoxControl2.Name = "listBoxControl2";
-            this.listBoxControl2.Size = new System.Drawing.Size(727, 559);
-            this.listBoxControl2.TabIndex = 0;
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 15;
+            this.listBox2.Location = new System.Drawing.Point(137, 151);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(306, 154);
+            this.listBox2.TabIndex = 0;
             // 
             // XtraForm4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1333, 690);
+            this.Controls.Add(this.xtraTabControl1);
             this.Controls.Add(this.textEdit2);
             this.Controls.Add(this.textEdit4);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.textEdit3);
             this.Controls.Add(this.labelControl4);
-            this.Controls.Add(this.tabPane1);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.createQuest);
             this.Controls.Add(this.textEdit1);
@@ -226,12 +219,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            this.tabNavigationPage2.ResumeLayout(false);
-            this.tabNavigationPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
-            this.tabPane1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
+            this.xtraTabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,10 +240,10 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.TextEdit textEdit4;
         private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage2;
-        private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage1;
-        private DevExpress.XtraBars.Navigation.TabPane tabPane1;
-        private DevExpress.XtraEditors.ListBoxControl listBoxControl1;
-        private DevExpress.XtraEditors.ListBoxControl listBoxControl2;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox2;
     }
 }

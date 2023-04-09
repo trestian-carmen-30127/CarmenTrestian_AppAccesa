@@ -105,3 +105,4 @@ C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\E
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.Office.v22.2.Core.xml
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.RichEdit.v22.2.Core.xml
 C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\bin\Debug\DevExpress.Xpo.v22.2.xml
+C:\Users\trest\Documents\Test tehnic Accesa\CarmenTrestian_AppAccesa\EduFuture\EduFuture\obj\Debug\EduFuture.XtraForm6.resources
