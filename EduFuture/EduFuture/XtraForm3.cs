@@ -38,35 +38,36 @@ namespace EduFuture
         }
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            int i = 1; ;
-            
-            using (SqlCommand cmd = new SqlCommand("SELECT MAX(Id_user) AS ID FROM Users", con))
-            {
-                con.Open();
-                i = Convert.ToInt32(cmd.ExecuteScalar()) ;
-                con.Close();
-                
-            }
-            i++;
+            int i=1 ;
+
+             using (SqlCommand cmd = new SqlCommand("SELECT MAX(Id_user) AS ID FROM Users", con))
+             {
+                 con.Open();
+                 i = Convert.ToInt32(cmd.ExecuteScalar()) ;
+                 con.Close();
+
+             }
+             i++;
+            UserSession.UserId = i;
+            UserSession.Username = textEdit1.Text;
             try
             {
                 
                 con.Open();
                 SqlCommand Insert_Users = con.CreateCommand();
                 Insert_Users.CommandText = "INSERT INTO Users (Id_user, Username, Password, Age , Email,Rank,Badges,Tokens) VALUES (@Id_user, @Username, @Password, @Age, @Email,@Rank,@Badges,@Tokens)";
-                    Insert_Users.Parameters.AddWithValue("@Id_user", i);
-                    Insert_Users.Parameters.AddWithValue("@Username", textEdit1.Text);
-                    Insert_Users.Parameters.AddWithValue("@Password", textEdit4.Text);
-                    Insert_Users.Parameters.AddWithValue("@Age", textEdit3.Text);
-                    Insert_Users.Parameters.AddWithValue("@Email", textEdit2.Text);
-                    if (checkBox1.Checked) Insert_Users.Parameters.AddWithValue("@Rank", "teacher");
-                    else Insert_Users.Parameters.AddWithValue("@Rank", "begginer");
-                    Insert_Users.Parameters.AddWithValue("@Badges", 0);
-                    Insert_Users.Parameters.AddWithValue("@Tokens", 0);
-                    Insert_Users.ExecuteNonQuery();
+                Insert_Users.Parameters.AddWithValue("@Id_user", i);
+                Insert_Users.Parameters.AddWithValue("@Username", textEdit1.Text);
+                Insert_Users.Parameters.AddWithValue("@Password", textEdit4.Text);
+                Insert_Users.Parameters.AddWithValue("@Age", textEdit3.Text);
+                Insert_Users.Parameters.AddWithValue("@Email", textEdit2.Text);
+                if (checkBox1.Checked) Insert_Users.Parameters.AddWithValue("@Rank", "teacher");
+                else Insert_Users.Parameters.AddWithValue("@Rank", "begginer");
+                Insert_Users.Parameters.AddWithValue("@Badges", 0);
+                Insert_Users.Parameters.AddWithValue("@Tokens", 0);
+                Insert_Users.ExecuteNonQuery();
 
-                UserSession.UserId = i;
-                UserSession.Username = textEdit1.Text;
+               
                 MessageBox.Show("Your account was created!");
             }
             catch(Exception ex)

@@ -124,6 +124,7 @@
             this.textEdit3.Name = "textEdit3";
             this.textEdit3.Size = new System.Drawing.Size(126, 24);
             this.textEdit3.TabIndex = 9;
+          
             // 
             // labelControl5
             // 

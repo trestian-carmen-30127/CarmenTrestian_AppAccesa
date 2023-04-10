@@ -67,6 +67,8 @@ namespace EduFuture
 
         private void XtraForm4_Load(object sender, EventArgs e)
         {
+            int userId = UserSession.UserId;
+            string username = UserSession.Username;
             listBox1.SelectionMode = SelectionMode.MultiSimple;
             try
             {
@@ -75,10 +77,10 @@ namespace EduFuture
                     con.Open();
 
 
-                    SqlCommand rank = new SqlCommand("SELECT Rank FROM Users WHERE Username=@username", con);
+            SqlCommand rank = new SqlCommand("SELECT Rank FROM Users WHERE Username=@username", con);
             rank.Parameters.AddWithValue("@username", username);
-            string r = (string)rank.ExecuteScalar();// dupa ce insereaza un quest se pierde variabila users-ului
-            textEdit2.Text = r;
+            string r = (string)rank.ExecuteScalar();// dupa ce insereaza un quest se pierde variabila users-ului 'The parameterized query '(@username nvarchar(4000))SELECT Rank FROM Users WHERE Username=' expects the parameter '@username', which was not supplied.'
+                    textEdit2.Text = r;
 
             SqlCommand tokens = new SqlCommand("SELECT Tokens FROM Users WHERE Username=@username", con);
             tokens.Parameters.AddWithValue("@username", username);
@@ -89,6 +91,12 @@ namespace EduFuture
             badges.Parameters.AddWithValue("@username", username);
             int b = Convert.ToInt32(badges.ExecuteScalar());
             textEdit4.Text = b.ToString();
+
+            SqlCommand qa = new SqlCommand("SELECT COUNT(t1.Id_quest) FROM Quest t1 INNER JOIN User_q t2 ON t1.Id_quest=t2.Id_questfk WHERE Type='answered' AND t2.Id_userfk=@userId", con);
+            qa.Parameters.AddWithValue("@userId", userId);
+            int qi = Convert.ToInt32(qa.ExecuteScalar());
+            textEdit3.Text = qi.ToString();
+
 
                 }
             }
@@ -153,7 +161,7 @@ namespace EduFuture
                     {
                         SqlCommand questions = new SqlCommand("SELECT t1.Question FROM Quest t1 INNER JOIN User_q t2 ON t1.Id_quest=t2.Id_questfk WHERE Type='created' AND t1.Domain='History'", con);
                         questions.Parameters.AddWithValue("@username", username);
-                        string q = (string)questions.ExecuteScalar();//eroare
+                        string q = (string)questions.ExecuteScalar();
                         if (listBox2.FindStringExact(q) == ListBox.NoMatches)
                         {
                             listBox2.Items.Add(q);
@@ -180,6 +188,6 @@ namespace EduFuture
             }
         }
 
-      
+     
     }
 }

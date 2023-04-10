@@ -43,7 +43,7 @@ namespace EduFuture
         {
             int userId = UserSession.UserId;
             string username = UserSession.Username;
-            int i;
+            int i=1;
             
            using (SqlCommand cmd = new SqlCommand("SELECT MAX(Id_quest) FROM Quest", con))
             {
@@ -68,7 +68,7 @@ namespace EduFuture
               
                 SqlCommand id = new SqlCommand("SELECT Id_user FROM Users WHERE Id_user=@userId", con);//nu se transmite aici userul din form2
                 id.Parameters.AddWithValue("@userId", userId);
-                int j = Convert.ToInt32(id.ExecuteScalar());
+                int j = Convert.ToInt32(id.ExecuteScalar())+1;
 
                 SqlCommand Insert_User_q = con.CreateCommand();
                 Insert_User_q.CommandText = "INSERT INTO User_q (Id_userq, Id_userfk,Id_questfk,Type) VALUES (@Id_userq, @Id_userfk, @Id_questfk,@Type )";
