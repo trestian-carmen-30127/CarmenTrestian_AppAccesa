@@ -31,11 +31,7 @@ namespace EduFuture
      
         private SqlConnection con = new SqlConnection("Data Source=" + "LAPTOP-GPJH9TCQ\\SQLEXPRESS01;Initial Catalog=EduFuturedb;Integrated Security=True");
         private SqlDataAdapter Da = new SqlDataAdapter();
-        public static class UserSession
-        {
-            public static int UserId { get; set; }
-            public static string Username { get; set; }
-        }
+      
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             int i=1 ;

@@ -29,11 +29,7 @@ namespace EduFuture
         private SqlConnection con = new SqlConnection("Data Source=" + "LAPTOP-GPJH9TCQ\\SQLEXPRESS01;Initial Catalog=EduFuturedb;Integrated Security=True");
 
 
-        public static class UserSession
-        {
-            public static int UserId { get; set; }
-            public static string Username { get; set; }
-        }
+       
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             
@@ -47,7 +43,7 @@ namespace EduFuture
 
             if ( p!=null && (string.Compare(p.Trim(),textEdit2.Text)==0 ))
             {
-                SqlCommand id = new SqlCommand("SELECT Tokens FROM Users WHERE Username=@user", con);
+                SqlCommand id = new SqlCommand("SELECT Id_user FROM Users WHERE Username=@user", con);
                 id.Parameters.AddWithValue("@user", user);
                 int i = Convert.ToInt32(id.ExecuteScalar());
                 UserSession.UserId = i;

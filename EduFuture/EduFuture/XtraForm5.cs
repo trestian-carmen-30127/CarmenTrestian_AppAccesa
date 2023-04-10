@@ -45,7 +45,7 @@ namespace EduFuture
             string username = UserSession.Username;
             int i=1;
             
-           using (SqlCommand cmd = new SqlCommand("SELECT MAX(Id_quest) FROM Quest", con))
+          using (SqlCommand cmd = new SqlCommand("SELECT MAX(Id_quest) FROM Quest", con))
             {
                 con.Open();
                 i = Convert.ToInt32(cmd.ExecuteScalar());
@@ -70,11 +70,6 @@ namespace EduFuture
                 try
                 {
 
-                    
-                   
-
-
-
                     SqlCommand Insert_Users = con.CreateCommand();
                     Insert_Users.CommandText = "INSERT INTO Quest (Id_quest,Domain,Question,Answer,Prize) VALUES (@Id_quest,@Domain,@Question,@Answer,@Prize)";
                     Insert_Users.Parameters.AddWithValue("@Id_Quest", i);
@@ -84,14 +79,14 @@ namespace EduFuture
                     Insert_Users.Parameters.AddWithValue("@Prize", textEdit1.Text);
                     Insert_Users.ExecuteNonQuery();
 
-                    SqlCommand id = new SqlCommand("SELECT Id_user FROM Users WHERE Id_user=@userId", con);//nu se transmite aici userul din form2
+                    /*SqlCommand id = new SqlCommand("SELECT Id_user FROM Users WHERE Id_user=@userId", con);
                     id.Parameters.AddWithValue("@userId", userId);
-                    int j = Convert.ToInt32(id.ExecuteScalar()) + 1;
+                    int j = Convert.ToInt32(id.ExecuteScalar());*/
 
                     SqlCommand Insert_User_q = con.CreateCommand();
                     Insert_User_q.CommandText = "INSERT INTO User_q (Id_userq, Id_userfk,Id_questfk,Type) VALUES (@Id_userq, @Id_userfk, @Id_questfk,@Type )";
                     Insert_User_q.Parameters.AddWithValue("@Id_userq", i);
-                    Insert_User_q.Parameters.AddWithValue("@Id_userfk", j);
+                    Insert_User_q.Parameters.AddWithValue("@Id_userfk", userId);
                     Insert_User_q.Parameters.AddWithValue("@Id_questfk", i);
                     Insert_User_q.Parameters.AddWithValue("@Type", "created");
                     Insert_User_q.ExecuteNonQuery();

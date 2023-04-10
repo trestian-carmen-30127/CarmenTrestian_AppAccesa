@@ -43,9 +43,11 @@ namespace EduFuture
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            con.Open();
             SqlCommand answer = new SqlCommand("SELECT Answer FROM Quest WHERE Question=@questiontxt", con);
-            answer.Parameters.AddWithValue("@question", questiontxt);
+            answer.Parameters.AddWithValue("@questiontxt", questiontxt);
             string q = (string)answer.ExecuteScalar();
+            con.Close();
             int i;
             if (q != null && (string.Compare(q.Trim(), textEdit1.Text) == 0))
             {
@@ -80,7 +82,7 @@ namespace EduFuture
                     // Insereaza in tablea User_q questul ca fiind raspuns
                     SqlCommand id = new SqlCommand("SELECT Id_user FROM Users WHERE Id_user=@userId", con);
                     id.Parameters.AddWithValue("@userId", userId);
-                    int j = Convert.ToInt32(id.ExecuteScalar())+1;
+                    int j = Convert.ToInt32(id.ExecuteScalar());
 
                     SqlCommand Insert_User_q = con.CreateCommand();
                     Insert_User_q.CommandText = "INSERT INTO User_q (Id_userq, Id_userfk,Id_questfk,Type) VALUES (@Id_userq, @Id_userfk, @Id_questfk,@Type )";
