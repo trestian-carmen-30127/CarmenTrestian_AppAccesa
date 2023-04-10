@@ -64,7 +64,8 @@ namespace EduFuture
                 if (checkBox1.Checked) Insert_Users.Parameters.AddWithValue("@Rank", "teacher");
                 else Insert_Users.Parameters.AddWithValue("@Rank", "begginer");
                 Insert_Users.Parameters.AddWithValue("@Badges", 0);
-                Insert_Users.Parameters.AddWithValue("@Tokens", 0);
+                if (checkBox1.Checked) Insert_Users.Parameters.AddWithValue("@Tokens", 100);
+                else Insert_Users.Parameters.AddWithValue("@Tokens", 0);
                 Insert_Users.ExecuteNonQuery();
 
                

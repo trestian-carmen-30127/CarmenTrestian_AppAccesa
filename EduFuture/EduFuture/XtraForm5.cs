@@ -53,36 +53,58 @@ namespace EduFuture
 
             }
             i++;
-            try
+            con.Open();
+            SqlCommand tokens = new SqlCommand("SELECT Tokens FROM Users WHERE Username=@username", con);
+            tokens.Parameters.AddWithValue("@username", username);
+            int t = Convert.ToInt32(tokens.ExecuteScalar());
+
+            SqlCommand nr = new SqlCommand("SELECT COUNT(Id_user) FROM Users", con);
+            int n = Convert.ToInt32(nr.ExecuteScalar()) - 1;
+
+            SqlCommand prize = new SqlCommand("SELECT t1.Prize FROM Quest t1 INNER JOIN User_q t2 ON t1.Id_quest=t2.Id_questfk WHERE t2.Id_userfk-1=@userId", con);
+            prize.Parameters.AddWithValue("@userId", userId);
+            int p = Convert.ToInt32(prize.ExecuteScalar());
+
+            if (t > p * n)
             {
+                try
+                {
 
-                con.Open();
-                SqlCommand Insert_Users = con.CreateCommand();
-                Insert_Users.CommandText = "INSERT INTO Quest (Id_quest,Domain,Question,Answer,Prize) VALUES (@Id_quest,@Domain,@Question,@Answer,@Prize)";
-                Insert_Users.Parameters.AddWithValue("@Id_Quest", i);
-                Insert_Users.Parameters.AddWithValue("@Domain", comboBoxEdit1.SelectedItem.ToString());
-                Insert_Users.Parameters.AddWithValue("@Question", textEdit2.Text);
-                Insert_Users.Parameters.AddWithValue("@Answer", textEdit3.Text);
-                Insert_Users.Parameters.AddWithValue("@Prize", textEdit1.Text);
-                Insert_Users.ExecuteNonQuery();
-              
-                SqlCommand id = new SqlCommand("SELECT Id_user FROM Users WHERE Id_user=@userId", con);//nu se transmite aici userul din form2
-                id.Parameters.AddWithValue("@userId", userId);
-                int j = Convert.ToInt32(id.ExecuteScalar())+1;
+                    
+                   
 
-                SqlCommand Insert_User_q = con.CreateCommand();
-                Insert_User_q.CommandText = "INSERT INTO User_q (Id_userq, Id_userfk,Id_questfk,Type) VALUES (@Id_userq, @Id_userfk, @Id_questfk,@Type )";
-                Insert_User_q.Parameters.AddWithValue("@Id_userq", i);
-                Insert_User_q.Parameters.AddWithValue("@Id_userfk", j);
-                Insert_User_q.Parameters.AddWithValue("@Id_questfk", i);
-                Insert_User_q.Parameters.AddWithValue("@Type", "created");
-                Insert_User_q.ExecuteNonQuery();
+
+
+                    SqlCommand Insert_Users = con.CreateCommand();
+                    Insert_Users.CommandText = "INSERT INTO Quest (Id_quest,Domain,Question,Answer,Prize) VALUES (@Id_quest,@Domain,@Question,@Answer,@Prize)";
+                    Insert_Users.Parameters.AddWithValue("@Id_Quest", i);
+                    Insert_Users.Parameters.AddWithValue("@Domain", comboBoxEdit1.SelectedItem.ToString());
+                    Insert_Users.Parameters.AddWithValue("@Question", textEdit2.Text);
+                    Insert_Users.Parameters.AddWithValue("@Answer", textEdit3.Text);
+                    Insert_Users.Parameters.AddWithValue("@Prize", textEdit1.Text);
+                    Insert_Users.ExecuteNonQuery();
+
+                    SqlCommand id = new SqlCommand("SELECT Id_user FROM Users WHERE Id_user=@userId", con);//nu se transmite aici userul din form2
+                    id.Parameters.AddWithValue("@userId", userId);
+                    int j = Convert.ToInt32(id.ExecuteScalar()) + 1;
+
+                    SqlCommand Insert_User_q = con.CreateCommand();
+                    Insert_User_q.CommandText = "INSERT INTO User_q (Id_userq, Id_userfk,Id_questfk,Type) VALUES (@Id_userq, @Id_userfk, @Id_questfk,@Type )";
+                    Insert_User_q.Parameters.AddWithValue("@Id_userq", i);
+                    Insert_User_q.Parameters.AddWithValue("@Id_userfk", j);
+                    Insert_User_q.Parameters.AddWithValue("@Id_questfk", i);
+                    Insert_User_q.Parameters.AddWithValue("@Type", "created");
+                    Insert_User_q.ExecuteNonQuery();
+
+                    MessageBox.Show("Your quest was created!");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
                 
-                MessageBox.Show("Your quest was created!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
             con.Close();
             XtraForm4 frm = new XtraForm4();
