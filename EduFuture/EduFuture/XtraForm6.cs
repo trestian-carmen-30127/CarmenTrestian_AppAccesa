@@ -68,8 +68,14 @@ namespace EduFuture
                     SqlDataAdapter DA = new SqlDataAdapter(cmd);
                     DA.SelectCommand = cmd;
                     DA.Fill(new DataSet());
-                    
 
+                    //Ia de la cel care a creat questul prize-ul 
+                    SqlCommand cmd2 = new SqlCommand();
+                    cmd2.Connection = con;
+                    cmd2.CommandText = @"UPDATE Users SET Users.Tokens = Users.Tokens - Quest.prize FROM Users JOIN User_q ON Users.Id_user = User_q.Id_userfk-1 JOIN Quest ON User_q.Id_questfk = Quest.Id_quest WHERE  Quest.Question=@questiontxt;";
+                    SqlDataAdapter DA2 = new SqlDataAdapter(cmd2);
+                    DA2.SelectCommand = cmd2;
+                    DA2.Fill(new DataSet());
 
                     // Insereaza in tablea User_q questul ca fiind raspuns
                     SqlCommand id = new SqlCommand("SELECT Id_user FROM Users WHERE Id_user=@userId", con);
