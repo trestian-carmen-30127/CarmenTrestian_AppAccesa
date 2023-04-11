@@ -124,7 +124,6 @@
             this.textEdit3.Name = "textEdit3";
             this.textEdit3.Size = new System.Drawing.Size(126, 24);
             this.textEdit3.TabIndex = 9;
-          
             // 
             // labelControl5
             // 
@@ -162,6 +161,7 @@
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
             this.xtraTabPage2});
+            this.xtraTabControl1.Click += new System.EventHandler(this.xtraTabControl1_Click);
             // 
             // xtraTabPage1
             // 
@@ -179,6 +179,8 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(544, 394);
             this.listBox1.TabIndex = 0;
+            this.listBox1.Click += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // xtraTabPage2
             // 
@@ -196,6 +198,7 @@
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(549, 409);
             this.listBox2.TabIndex = 0;
+            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
             // XtraForm4
             // 

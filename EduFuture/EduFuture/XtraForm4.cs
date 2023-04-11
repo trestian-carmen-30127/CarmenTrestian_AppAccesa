@@ -133,19 +133,7 @@ namespace EduFuture
             {
                 con.Close();
             }
-            for (int i = 0; i < listBox1.Items.Count; i++)
-            {
-                if (listBox1.GetSelected(i))
-                {
-                    QuestSession.Questiontxt = listBox1.Items[i].ToString();
-                    XtraForm6 frm = new XtraForm6();
-                    frm.Location = this.Location;
-                    frm.StartPosition = FormStartPosition.Manual;
-                    frm.FormClosing += delegate { this.Show(); };
-                    frm.Show();
-                    this.Hide();
-                }
-            }
+           
         }
 
         private void xtraTabPage2_Paint(object sender, PaintEventArgs e)
@@ -173,6 +161,33 @@ namespace EduFuture
             {
                 con.Close();
             }
+            
+        }
+
+        private void xtraTabControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < listBox1.Items.Count; i++)
+            {
+                if (listBox1.GetSelected(i))
+                {
+                    QuestSession.Questiontxt = listBox1.Items[i].ToString();
+                    XtraForm6 frm = new XtraForm6();
+                    frm.Location = this.Location;
+                    frm.StartPosition = FormStartPosition.Manual;
+                    frm.FormClosing += delegate { this.Show(); };
+                    frm.Show();
+                    this.Hide();
+                }
+            }
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
             for (int i = 0; i < listBox2.Items.Count; i++)
             {
                 if (listBox2.GetSelected(i))
@@ -187,7 +202,5 @@ namespace EduFuture
                 }
             }
         }
-
-     
     }
 }
