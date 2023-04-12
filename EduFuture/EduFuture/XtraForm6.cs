@@ -123,7 +123,7 @@ namespace EduFuture
                     con.Close();
                 }
 
-                SqlCommand qa = new SqlCommand("SELECT COUNT(t1.Id_quest) FROM Quest t1 INNER JOIN User_q t2 ON t1.Id_quest=t2.Id_questfk WHERE Type='answered' AND t2.Id_userfk=@userId", con);
+              /*  SqlCommand qa = new SqlCommand("SELECT COUNT(t1.Id_quest) FROM Quest t1 INNER JOIN User_q t2 ON t1.Id_quest=t2.Id_questfk WHERE Type='answered' AND t2.Id_userfk=@userId", con);
                 qa.Parameters.AddWithValue("@userId", userId);
                 int qi = Convert.ToInt32(qa.ExecuteScalar());
 
@@ -183,7 +183,7 @@ namespace EduFuture
                     SqlCommand bh2 = new SqlCommand("UPDATE Users  SET Users.Badges=Badges+1 FROM Users WHERE Id_user=@userId", con);
                     bh2.Parameters.AddWithValue("@userId", userId);
                     bh2.ExecuteNonQuery();
-                }
+                }*/
 
             }
             else MessageBox.Show("Your answer is wrong.");

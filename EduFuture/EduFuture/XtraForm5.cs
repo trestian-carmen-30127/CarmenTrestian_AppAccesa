@@ -79,13 +79,12 @@ namespace EduFuture
                     Insert_Users.Parameters.AddWithValue("@Prize", textEdit1.Text);
                     Insert_Users.ExecuteNonQuery();
 
-                    /*SqlCommand id = new SqlCommand("SELECT Id_user FROM Users WHERE Id_user=@userId", con);
-                    id.Parameters.AddWithValue("@userId", userId);
-                    int j = Convert.ToInt32(id.ExecuteScalar());*/
+                    SqlCommand id = new SqlCommand("SELECT MAX(Id_userq) FROM User_q", con);
+                    int j = Convert.ToInt32(id.ExecuteScalar())+1;
 
                     SqlCommand Insert_User_q = con.CreateCommand();
                     Insert_User_q.CommandText = "INSERT INTO User_q (Id_userq, Id_userfk,Id_questfk,Type) VALUES (@Id_userq, @Id_userfk, @Id_questfk,@Type )";
-                    Insert_User_q.Parameters.AddWithValue("@Id_userq", i);
+                    Insert_User_q.Parameters.AddWithValue("@Id_userq", j);
                     Insert_User_q.Parameters.AddWithValue("@Id_userfk", userId);
                     Insert_User_q.Parameters.AddWithValue("@Id_questfk", i);
                     Insert_User_q.Parameters.AddWithValue("@Type", "created");
@@ -110,6 +109,9 @@ namespace EduFuture
             this.Hide();
         }
 
-       
+        private void XtraForm5_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

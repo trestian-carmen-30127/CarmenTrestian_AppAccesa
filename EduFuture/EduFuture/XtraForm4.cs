@@ -116,17 +116,23 @@ namespace EduFuture
                 {
                     con.Open();
                     SqlCommand number = new SqlCommand("SELECT COUNT(Id_userq) FROM User_q WHERE Type='created'", con);
-                     int n = Convert.ToInt32(number.ExecuteScalar());
-                     for (int i=1;i<=n;i++)
-                     {
-                         SqlCommand questions = new SqlCommand("SELECT t1.Question FROM Quest t1 INNER JOIN User_q t2 ON t1.Id_quest=t2.Id_questfk WHERE Type='created' AND t1.Domain='Computer Science'", con);
-                         questions.Parameters.AddWithValue("@username", username);
-                         string q = (string)questions.ExecuteScalar();//eroare
+                    int n = Convert.ToInt32(number.ExecuteScalar());
+                    SqlCommand questions = new SqlCommand("SELECT t1.Question FROM Quest t1 INNER JOIN User_q t2 ON t1.Id_quest=t2.Id_questfk WHERE Type='created' AND t1.Domain='Computer Science'", con);
+                    questions.Parameters.AddWithValue("@username", username);
+
+                    using (SqlDataReader reader = questions.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string q = reader["Question"].ToString();
                             if (listBox1.FindStringExact(q) == ListBox.NoMatches)
-                             {
-                                 listBox1.Items.Add(q);
-                             }
-                     }
+                            {
+                                listBox1.Items.Add(q);
+                            }
+                        }
+                    }
+
+
                 }
             }
             finally
@@ -201,6 +207,11 @@ namespace EduFuture
                     this.Hide();
                 }
             }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
