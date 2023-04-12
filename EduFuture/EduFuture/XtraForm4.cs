@@ -79,7 +79,7 @@ namespace EduFuture
 
             SqlCommand rank = new SqlCommand("SELECT Rank FROM Users WHERE Username=@username", con);
             rank.Parameters.AddWithValue("@username", username);
-            string r = (string)rank.ExecuteScalar();// dupa ce insereaza un quest se pierde variabila users-ului 'The parameterized query '(@username nvarchar(4000))SELECT Rank FROM Users WHERE Username=' expects the parameter '@username', which was not supplied.'
+            string r = (string)rank.ExecuteScalar();
                     textEdit2.Text = r;
 
             SqlCommand tokens = new SqlCommand("SELECT Tokens FROM Users WHERE Username=@username", con);
